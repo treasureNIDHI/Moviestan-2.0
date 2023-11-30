@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <title>PDF</title>
+</head>
+
+<body>
+    <h2> Hi, {{username}}</h2><br>
+    Here is your monthly report for the month of {{month}}.
+
+    {% if data|length == 0 %}
+    <h3>You have not watched any Movies yet.</h3>
+    {% else %}
+    <h2 class="text-center"><strong>Movie Details</strong></h2><br>
+    <table class="table table-striped">
+        <thead class="table-light">
+            <tr>
+                <th>Movie id</th>
+                <th>Name</th>
+                <th>Rating</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in data %}
+            <tr>
+                <td>{{ i.id }}</td>
+                <td>{{ i.movie_name }}</td>
+                <td>{{ i.rating }}</td>
+                <td>{{ i.price }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table><br>
+    {% endif %}
+    <br>
+    <strong>Thank You for using the service. Have a great Day.</strong>
+</body>
+
+</html>
